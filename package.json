@@ -4,6 +4,7 @@
   "description": "Create an api for distribute my cv",
   "main": "index.js",
   "dependencies": {
+    "eslint-config-airbnb-base": "^13.1.0",
     "express": "^4.16.4",
     "joi": "^14.3.1",
     "jsonwebtoken": "^8.5.1",
