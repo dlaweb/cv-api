@@ -1,0 +1,29 @@
+{
+  "name": "cv-api",
+  "version": "1.0.0",
+  "description": "Create an api for distribute my cv",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "nodemon": "^1.18.10",
+    "sequelize": "^5.2.12"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlaweb/cv-api.git"
+  },
+  "author": "DL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dlaweb/cv-api/issues"
+  },
+  "homepage": "https://github.com/dlaweb/cv-api#readme"
+}
