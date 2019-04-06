@@ -15,6 +15,28 @@ app.get('/api/v1/cv', (req,res) => {
     })
 });
 
+// Voir les compétences
+app.get('/api/v1/:id/competences', (req, res) => {
+
+    const id = +req.params.id
+
+    db.map((cv) => {
+        if (cv.id === id ){
+            return res.status(200).send({
+                success: 'true',
+                message: 'Competences retrieved',
+                competences: cv.competences
+            })
+        }else{
+            return res.status(404).send({
+                success: 'false',
+                message: 'Cannot retrieved datas'
+            })
+        }
+    })
+
+});
+
 
 const PORT = 5000;
 
