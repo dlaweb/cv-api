@@ -10,23 +10,20 @@ const cv = [
                 prenom: "David"
             }
         ],
-        competences: [
-            {
-                langages:["PHP", "Javascript"]
-            }
-        ],
-        formations: [
-            {
+        competences: {
+                langages:["PHP", "Javascript"],
+                serveur:["NodeJS", "Apache"],
+                environnement: ["Linux","OSX"]
+        },
+        formations: {
                 name: "WDS",
                 year: "2019"
             }
-        ],
-        experiences: [
-            {
+        ,
+        experiences: {
                 name: "Zip",
                 year: "2019"
-            }
-        ]
+        }
     }
 ];
 

@@ -15,7 +15,7 @@ app.get('/api/v1/cv', (req,res) => {
     })
 });
 
-// Voir les compétences
+// See the skills
 app.get('/api/v1/:id/competences', (req, res) => {
 
     const id = +req.params.id
@@ -35,6 +35,34 @@ app.get('/api/v1/:id/competences', (req, res) => {
         }
     })
 
+});
+
+// Add a language to skills
+app.post('/api/v1/:id/competences/langage', (req, res) => {
+
+
+    db.map((item) => {
+        const tableLanguages = item.competences.langages
+
+        if (req.body.langages && req.body.id){
+
+            const langage = req.body.langages
+
+            tableLanguages.push(langage)
+
+            return res.status(201).send({
+                success: 'true',
+                message: 'Le langage a bien été ajouté',
+                cv: db
+            })
+        }else{
+            return res.status(404).send({
+                success: 'false',
+                message: 'Cannot push datas'
+            })
+        }
+    })
+    
 });
 
 
