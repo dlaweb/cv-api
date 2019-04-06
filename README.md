@@ -43,3 +43,5 @@ npx babel-node index.js
 
 GET http://localhost:5000/api/v1/cv
 GET http://localhost:5000/api/v1/1/competences
+
+POST http://localhost:5000/api/v1/1/competences
