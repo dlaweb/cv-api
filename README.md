@@ -34,3 +34,12 @@ Pouvoir lister/voir/ajouter/supprimer/modifier un hobby
 - Intégrer eslint
 - Intégrer Babel pour les import/export, ou regarder le package "esm" (pas testé encore de mon coté)
 -Règles de base airbnb : eslint-config-airbnb-base
+
+### Utilisation
+
+npx babel-node index.js
+
+#### Request
+
+GET http://localhost:5000/api/v1/cv
+GET http://localhost:5000/api/v1/1/competences
