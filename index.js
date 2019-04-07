@@ -65,6 +65,38 @@ app.post('/api/v1/:id/competences/langage', (req, res) => {
     
 });
 
+// Delete langage
+app.delete('/api/v1/:id/competences/langage', (req,res) => {
+
+    db.map((item) => {
+
+        const tableLanguages = item.competences.langages
+
+        item.competences.langages.map((value, index) => {
+    
+            if(req.body.id && req.body.position){
+    
+                if (req.body.position == index){
+                    
+                    tableLanguages.slice(index,1)
+    
+                    return res.status(201).send({
+                        state: 'success',
+                        message: `Le langage ${value} a bien été supprimé `,
+                        cv: db
+                    })
+
+                }
+            }else{
+                return res.status(404).send({
+                    state: 'error',
+                    message: 'Cannot delete element'
+                })
+            }
+        })
+    })
+});
+
 
 const PORT = 5000;
 
