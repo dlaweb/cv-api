@@ -1,9 +1,19 @@
 import db from  './db/db';
+import bp from 'body-parser';
+import express from 'express';
+import Sequelize from 'sequelize';
+let app = express()
 
-const bp = require('body-parser');
-const express = require("express");
-var app = express()
+const sequelize = new Sequelize('mysql://david:root@localhost/apicv');
 
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connected')
+    })
+    .catch(err => {
+        console.log('Cannot connect to database')
+    });
 
 app.use(bp.urlencoded({extended:true}))
 
