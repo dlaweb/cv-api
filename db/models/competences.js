@@ -1,21 +1,27 @@
 
 export default (sequelize, DataTypes) => {
-    const Competences = sequelize.define('cv_competences', {
-        id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            primaryKey: true
+    const Competences = sequelize.define(
+        'cvCompetences', 
+        {
+            id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                primaryKey: true
+            },
+            idExperience: {
+                type: DataTypes.UUID,
+                //relied to an Experience
+            },
         },
-        idCv: {
-            type: DataTypes.UUID,
-            //foreign
-        },
-        idExperence: {
-            type: DataTypes.UUID,
-            //foreign
-        },
-    }, {
-        // options
-        });
+        {
+            tableName: 'cv_competences'
+        }
+    );
+
+    Competences.associate = (db) => {
+        db.cvCompetences.belongsTo(db.cv);
+        db.cvCompetences.hasMany(db.langage);
+    };
+
     return Competences;
 };

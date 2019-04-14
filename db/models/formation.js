@@ -1,27 +1,27 @@
-import formations from "./formations";
-
 export default (sequelize, DataTypes) => {
-    const Formation = sequelize.define('cv_formation', {
-        id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            primaryKey: true
+    const Formation = sequelize.define(
+        'cvFormation', 
+        {
+            id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                primaryKey: true
+            },
+            date: {
+                type: DataTypes.DATEONLY,
+            },
+            ecole: {
+                type: DataTypes.STRING,
+            },
         },
-        date: {
-            type: DataTypes.DATEONLY,
-        },
-        ecole: {
-            type: DataTypes.STRING,
-        },
-        idFormations: {
-            type: DataTypes.INTEGER,
-            references: {
-                key: 'id',
-                model: formations
-            }
-        },
-    }, {
-        // options
-        });
+        {
+            tableName: 'cv_formation'
+        }
+    );
+
+    Formation.associate = (db) => {
+        db.cvFormation.belongsTo(db.cvFormations);
+    };
+
     return Formation;
 };

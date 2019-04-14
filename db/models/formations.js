@@ -1,29 +1,30 @@
-import cv from "./cv";
 import competences from "./competences";
 
 export default (sequelize, DataTypes) => {
-    const Formations = sequelize.define('cv_formations', {
-        id: {
-            type: DataTypes.UUID,
-            allowNull: false,
-            primaryKey: true
+    const Formations = sequelize.define(
+        'cvFormations', 
+        {
+            id: {
+                type: DataTypes.UUID,
+                allowNull: false,
+                primaryKey: true
+            },
+            idCompetences: {
+                type: DataTypes.UUID,
+                references:{
+                    model: competences,
+                    key: 'id'
+                }
+            },
         },
-        idCv: {
-            type: DataTypes.UUID,
-            references:{
-                model: cv,
-                key: 'id'
-            }
-        },
-        idCompetences: {
-            type: DataTypes.UUID,
-            references:{
-                model: competences,
-                key: 'id'
-            }
-        },
-    }, {
-        // options
-        });
+        {
+            tableName: 'cv_formations'
+        }
+    );
+
+    Formations.associate = (db) => {
+        db.cvFormations.belongsTo(db.cv);
+    };
+
     return Formations;
 };
