@@ -1,5 +1,5 @@
 # Contexte
-Créer une API REST qui distribue ton CV.
+Créer une API REST pour distribuer mon CV.
 
 ## Routes
 
