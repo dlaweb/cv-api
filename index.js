@@ -2,6 +2,8 @@ import db from  './db/db';
 import bp from 'body-parser';
 import express from 'express';
 import Sequelize from 'sequelize';
+import Experiences from './models/experiences';
+
 let app = express()
 
 const sequelize = new Sequelize('mysql://david:root@localhost/apicv');
@@ -14,6 +16,16 @@ sequelize
     .catch(err => {
         console.log('Cannot connect to database')
     });
+
+const findXP = async () => {
+    try {
+        const allCampus = await Experiences.findAll()
+        console.log(allCampus) //console.log allCampus, see what you get?
+    } catch (error) {
+        console.log(error)
+    }
+}
+findXP() 
 
 app.use(bp.urlencoded({extended:true}))
 
@@ -49,7 +61,6 @@ app.get('/api/v1/:id/competences', (req, res) => {
 
 // Add a language to skills
 app.post('/api/v1/:id/competences/langage', (req, res) => {
-
 
     db.map((item) => {
         const tableLanguages = item.competences.langages
