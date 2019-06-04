@@ -9,7 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       idCompetences: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cv_competences',
+          key: 'id'
+        },
       },
       createdAt: {
         allowNull: false,
