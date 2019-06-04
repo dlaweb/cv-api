@@ -1,4 +1,4 @@
-import experience from "./experience";
+import experience from "./old_experience";
 
 export default (sequelize, DataTypes) => {
     const Experiences = sequelize.define(
