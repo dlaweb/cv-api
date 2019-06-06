@@ -2,8 +2,6 @@ import db from  './db/db';
 import bp from 'body-parser';
 import express from 'express';
 import Sequelize from 'sequelize';
-import Experiences from './models/experiences';
-import Cv from './models/cv';
 import models from './models/index';
 
 let app = express()
