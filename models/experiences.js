@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Experiences = sequelize.define('cvExperiences', {
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    idCv: DataTypes.INTEGER
   },
   {
     tableName: 'cv_experiences'

@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Competences = sequelize.define('cvCompetences', {
-    idExperience: DataTypes.INTEGER
+    idExperience: DataTypes.INTEGER,
+    idCv: DataTypes.INTEGER
   }, 
   {
     tableName: 'cv_competences'
