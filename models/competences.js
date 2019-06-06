@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
 );
   Competences.associate = (db) => {
     db.cvCompetences.belongsTo(db.cv);
-    db.cvCompetences.hasMany(db.langage);
+    db.cvCompetences.hasMany(db.cvLangage);
   };
   return Competences;
 };

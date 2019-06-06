@@ -3,6 +3,8 @@ import bp from 'body-parser';
 import express from 'express';
 import Sequelize from 'sequelize';
 import Experiences from './models/experiences';
+import Cv from './models/cv';
+import models from './models/index';
 
 let app = express()
 
@@ -17,15 +19,18 @@ sequelize
         console.log('Cannot connect to database')
     });
 
-const findXP = async () => {
+const findResume = async () => {
+    console.log(Cv)
     try {
-        const allCampus = await Experiences.findAll()
-        console.log(allCampus) //console.log allCampus, see what you get?
+        const theResume = await models.cv.findAll()
+        console.log("Récupération du cv")
+        console.log(theResume)
     } catch (error) {
         console.log(error)
     }
 }
-findXP() 
+
+findResume();
 
 app.use(bp.urlencoded({extended:true}))
 
