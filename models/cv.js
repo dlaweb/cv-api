@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
   });
   Cv.associate = function(db) {
     db.cv.hasMany(db.cvExperience);
-    db.cv.hasMany(db.cvFormations);
+    db.cv.hasMany(db.cvFormation);
     db.cv.hasMany(db.cvCompetences);
   };
   return Cv;
