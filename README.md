@@ -11,7 +11,7 @@ Pouvoir lister/voir/ajouter/supprimer/modifier une compétence, avec un niveau d
 
 ### Experiences
 Pouvoir lister/voir/ajouter/supprimer/modifier une experience
-Lier les compétences aux expériences, ex: Node.JS pour ZIP.
+Lier les compétences aux expériences, ex: Node.JS.
 
 ### Hobbies
 Pouvoir lister/voir/ajouter/supprimer/modifier un hobby
