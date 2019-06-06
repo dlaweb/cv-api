@@ -14,6 +14,13 @@ module.exports = {
       entreprise: {
         type: Sequelize.STRING
       },
+      idExperiences: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cv_experiences',
+          key: 'id'
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

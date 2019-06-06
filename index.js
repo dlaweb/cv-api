@@ -18,7 +18,6 @@ sequelize
     });
 
 const findResume = async () => {
-    console.log(Cv)
     try {
         const theResume = await models.cv.findAll()
         console.log("Récupération du cv")
