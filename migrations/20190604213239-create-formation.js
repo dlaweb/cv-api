@@ -14,10 +14,17 @@ module.exports = {
       ecole: {
         type: Sequelize.STRING
       },
-      idFormations: {
+      idCompetences: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'cv_formations',
+          model: 'cv_competences',
+          key: 'id'
+        },
+      },
+      idCv: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cv',
           key: 'id'
         },
       },
