@@ -14,6 +14,13 @@ module.exports = {
       ecole: {
         type: Sequelize.STRING
       },
+      idFormations: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cv_formations',
+          key: 'id'
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

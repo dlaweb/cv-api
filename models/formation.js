@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Formation = sequelize.define('cvFormation', {
     date: DataTypes.DATE,
-    ecole: DataTypes.STRING
+    ecole: DataTypes.STRING,
+    idFormations: DataTypes.INTEGER
   }, 
   {
     tableName: 'cv_formation'

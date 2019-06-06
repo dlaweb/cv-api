@@ -2,7 +2,8 @@
 module.exports = (sequelize, DataTypes) => {
   const Langage = sequelize.define('cvLangage', {
     langage: DataTypes.STRING,
-    level: DataTypes.INTEGER
+    level: DataTypes.INTEGER,
+    idCompetences: DataTypes.INTEGER
   }, 
   {
     tableName: 'cv_langage'

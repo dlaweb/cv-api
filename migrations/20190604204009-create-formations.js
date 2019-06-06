@@ -1,17 +1,24 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('cv_competences', {
+    return queryInterface.createTable('cv_formations', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idExperience: {
+      idCompetences: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'cv_experience',
+          model: 'cv_competences',
+          key: 'id'
+        },
+      },
+      idCv: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cv',
           key: 'id'
         },
       },
@@ -26,6 +33,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('cv_competences');
+    return queryInterface.dropTable('cv_formations');
   }
 };
