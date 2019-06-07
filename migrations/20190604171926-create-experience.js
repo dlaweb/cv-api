@@ -14,7 +14,7 @@ module.exports = {
       entreprise: {
         type: Sequelize.STRING
       },
-      idCv: {
+      cvId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'cv',

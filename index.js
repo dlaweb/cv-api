@@ -4,8 +4,10 @@ import express from 'express';
 import Sequelize from 'sequelize';
 import models from './models/index';
 
-let app = express()
+const experience = models.cvExperience;
 
+let app = express()
+const routePrefix = "/api/v1/"
 const sequelize = new Sequelize('mysql://david:root@localhost/apicv');
 
 sequelize
@@ -14,33 +16,26 @@ sequelize
         console.log('Connected')
     })
     .catch(err => {
-        console.log('Cannot connect to database')
+        console.log(err)
     });
-
-const findResume = async () => {
-    try {
-        const theResume = await models.cv.findAll()
-        console.log("Récupération du cv")
-        console.log(theResume)
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-findResume();
 
 app.use(bp.urlencoded({extended:true}))
 
-app.get('/api/v1/cv', (req,res) => {
-    res.status(200).send({
-        success: 'true',
-        message: 'Cv retrieved successfully',
-        cv: db
-    })
+/** ROUTES */
+
+// Retrieve the resume
+app.get(routePrefix + "cv", (req, res) => {
+    models.cv.findAll().then( (result) => res.json(result) )
+});
+
+// Retrieve experiences
+app.get(routePrefix + "cv/:id/experiences", (req,res) => {
+    const id = +req.params.id
+    const experiences = experience.findAll({where: { cvId: id}}).then( (result) => res.json(result) )
 });
 
 // See the skills
-app.get('/api/v1/:id/competences', (req, res) => {
+app.get(routePrefix + ":id/competences", (req, res) => {
 
     const id = +req.params.id
 
@@ -62,7 +57,7 @@ app.get('/api/v1/:id/competences', (req, res) => {
 });
 
 // Add a language to skills
-app.post('/api/v1/:id/competences/langage', (req, res) => {
+app.post(routePrefix + ":id/competences/langage", (req, res) => {
 
     db.map((item) => {
         const tableLanguages = item.competences.langages
@@ -89,7 +84,7 @@ app.post('/api/v1/:id/competences/langage', (req, res) => {
 });
 
 // Delete langage
-app.delete('/api/v1/:id/competences/langage', (req,res) => {
+app.delete(routePrefix + ":id/competences/langage", (req,res) => {
 
     db.map((item) => {
 
@@ -108,7 +103,6 @@ app.delete('/api/v1/:id/competences/langage', (req,res) => {
                         message: `Le langage ${value} a bien été supprimé `,
                         cv: db
                     })
-
                 }
             }else{
                 return res.status(404).send({
