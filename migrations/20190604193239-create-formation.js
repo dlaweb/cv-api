@@ -11,28 +11,22 @@ module.exports = {
       date: {
         type: Sequelize.DATE
       },
-      ecole: {
+      school: {
         type: Sequelize.STRING
       },
-      idCompetences: {
+      cvId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'cv_competences',
-          key: 'id'
-        },
-      },
-      idCv: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'cv',
           key: 'id'
         },
       },
-      createdAt: {
+      from: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      to: {
         allowNull: false,
         type: Sequelize.DATE
       }

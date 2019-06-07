@@ -8,27 +8,35 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idExperience: {
+      name: {
+        type: Sequelize.STRING
+      },
+      level: {
+        type: Sequelize.INTEGER
+      },
+      cvExperienceId: {
         type: Sequelize.INTEGER,
+        allowNull: true,
         references: {
           model: 'cv_experience',
           key: 'id'
         },
       },
-      idCv: {
+      cvFormationId: {
         type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: 'cv_formation',
+          key: 'id'
+        },
+      },
+      cvId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'cv',
           key: 'id'
         },
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },

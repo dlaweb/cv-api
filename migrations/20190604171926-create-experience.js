@@ -16,16 +16,17 @@ module.exports = {
       },
       cvId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'cv',
           key: 'id'
         },
       },
-      createdAt: {
+      from: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      to: {
         allowNull: false,
         type: Sequelize.DATE
       }

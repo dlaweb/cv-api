@@ -34,6 +34,16 @@ app.get(routePrefix + "cv/:id/experiences", (req,res) => {
     const experiences = experience.findAll({where: { cvId: id}}).then( (result) => res.json(result) )
 });
 
+// Add education
+app.post(routePrefix + "cv/formation", (req,res) => {
+    models.cvFormation.create({
+        date: req.body.date,
+        school: req.body.school,
+        cvId: req.body.cvId
+    })
+    .then((result) => res.json(result))
+});
+
 // See the skills
 app.get(routePrefix + ":id/competences", (req, res) => {
 
