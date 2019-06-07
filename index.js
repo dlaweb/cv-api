@@ -39,7 +39,9 @@ app.post(routePrefix + "cv/formation", (req,res) => {
     models.cvFormation.create({
         date: req.body.date,
         school: req.body.school,
-        cvId: req.body.cvId
+        cvId: req.body.cvId,
+        from: req.body.from,
+        to: req.body.to
     })
     .then((result) => res.json(result))
 });

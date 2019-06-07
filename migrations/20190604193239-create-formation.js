@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE
-      },
       school: {
         type: Sequelize.STRING
       },
@@ -29,7 +26,13 @@ module.exports = {
       to: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
     });
   },
   down: (queryInterface, Sequelize) => {

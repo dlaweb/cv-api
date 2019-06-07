@@ -1,9 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Formation = sequelize.define('cvFormation', {
-    date: DataTypes.DATE,
     school: DataTypes.STRING,
-    cvId: DataTypes.INTEGER
+    cvId: DataTypes.INTEGER,
+    from: DataTypes.DATE,
+    to: DataTypes.DATE
   }, 
   {
     tableName: 'cv_formation'

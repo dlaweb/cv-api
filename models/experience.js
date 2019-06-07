@@ -3,7 +3,9 @@ module.exports = (sequelize, DataTypes) => {
   const Experience = sequelize.define('cvExperience', {
     date: DataTypes.DATE,
     company: DataTypes.STRING,
-    cvId: DataTypes.INTEGER
+    cvId: DataTypes.INTEGER,
+    from: DataTypes.DATE,
+    to: DataTypes.DATE
   },         
   {
     tableName: 'cv_experience'
