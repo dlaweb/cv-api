@@ -5,6 +5,7 @@ import Sequelize from 'sequelize';
 import models from './models/index';
 
 const experience = models.cvExperience;
+const competence = models.cvCompetences;
 
 let app = express()
 const routePrefix = "/api/v1/"
@@ -46,6 +47,11 @@ app.post(routePrefix + "cv/formation", (req,res) => {
     .then((result) => res.json(result))
 });
 
+// See a specific competence
+app.get(routePrefix + ":id/competence", (req, res) => {
+    const id = +req.params.id
+    const comp = competence.findByPk(id).then( (result) => res.json(result) )
+});
 // See the skills
 app.get(routePrefix + ":id/competences", (req, res) => {
 

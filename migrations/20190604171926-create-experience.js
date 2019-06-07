@@ -26,7 +26,13 @@ module.exports = {
       to: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
     });
   },
   down: (queryInterface, Sequelize) => {

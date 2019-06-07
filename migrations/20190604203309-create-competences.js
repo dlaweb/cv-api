@@ -37,7 +37,13 @@ module.exports = {
           model: 'cv',
           key: 'id'
         },
-      }
+      },
+      createdAt: {
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        type: Sequelize.DATE
+      },
     });
   },
   down: (queryInterface, Sequelize) => {
