@@ -52,6 +52,13 @@ app.get(routePrefix + ":id/competence", (req, res) => {
     const id = +req.params.id
     const comp = competence.findByPk(id).then( (result) => res.json(result) )
 });
+
+// Delete a competence
+app.delete(routePrefix + "competence", (req,res) => {
+    const id = +req.body.id
+    const comp = competence.destroy({where: {id: id}}).then( (result) => res.json(result) )
+    
+});
 // See the skills
 app.get(routePrefix + ":id/competences", (req, res) => {
 
