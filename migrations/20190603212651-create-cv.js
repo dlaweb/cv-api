@@ -4,12 +4,25 @@ module.exports = {
     return queryInterface.createTable('cv', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: true,  
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      titre: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      firstName: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      mail: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      phone: {
+        type: Sequelize.INTEGER,
+        allowNull: true
       },
       description: {
         type: Sequelize.TEXT

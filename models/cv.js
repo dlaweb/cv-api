@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Cv = sequelize.define('cv', {
-    titre: DataTypes.STRING,
+    name: DataTypes.STRING,
+    firstName: DataTypes.STRING,
+    mail: DataTypes.STRING,
+    phone: DataTypes.INTEGER,
     description: DataTypes.TEXT
   }, 
   {

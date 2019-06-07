@@ -2,7 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Experience = sequelize.define('cvExperience', {
     date: DataTypes.DATE,
-    entreprise: DataTypes.STRING,
+    company: DataTypes.STRING,
     cvId: DataTypes.INTEGER
   },         
   {

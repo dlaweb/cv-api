@@ -14,20 +14,13 @@ module.exports = {
       level: {
         type: Sequelize.INTEGER
       },
-      idCompetences: {
+      cvId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
-          model: 'cv_competences',
+          model: 'cv',
           key: 'id'
         },
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
       }
     });
   },
